@@ -1,0 +1,16 @@
+.recipe{
+    position: relative;
+
+    &__name{
+        color:orange;
+    }
+
+    &__category{
+        color:red;
+    }
+}
+
+.text{
+    position: absolute;
+    bottom:0px;
+}
