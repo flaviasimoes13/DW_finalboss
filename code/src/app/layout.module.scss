@@ -1,0 +1,22 @@
+.nav{
+    display: flex;
+    flex-direction:column;
+    width:200px;
+    height: 100vh;
+    font-size: 15pt;
+    color:black;
+    background-color: rgb(219, 219, 172);
+    padding: 15px;
+    gap:15px;
+}
+
+
+.link{
+  display: flex;
+  align-items: center;
+  padding-top: 15px;
+}
+
+.separator{
+  border-top: 1px solid red;
+}
