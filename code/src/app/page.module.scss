@@ -1,0 +1,89 @@
+.highlights {
+    flex: 4 1;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    color: black;
+    margin-bottom: 20px;
+
+    .highlightItem {
+        background-color: #fff;
+        overflow: hidden;
+
+        img {
+            width: 5vw;
+            height: auto;
+        }
+
+        .highlightItemTitle {
+            font-size: 1.25rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .highlightItemDescription {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+    }
+}
+
+.quickRecipes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    color: black;
+    margin-bottom: 20px;
+
+    .quickRecipesItem {
+        display: grid;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        overflow: hidden;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 100px);
+        gap: 10px;
+
+        .recipe {
+            width: 100%;
+            border-radius: 8px;
+
+            img {
+                width: 100%;
+                border-radius: 8px;
+            }
+        }
+    }
+}
+
+.myRecipes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    color: black;
+    margin-bottom: 20px;
+
+    .myRecipesItem {
+        display: grid;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        overflow: hidden;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 100px);
+        gap: 10px;
+
+        .recipe {
+            width: 100%;
+            border-radius: 8px;
+
+            img {
+                width: 100%;
+                border-radius: 8px;
+            }
+        }
+    }
+}
