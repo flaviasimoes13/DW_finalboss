@@ -10,7 +10,7 @@ export default function Home() {
     <>
             <section className={Styles.highlightItem}>
               <h2 className={Styles.sectionTitle}>Featured Recipe</h2>
-              <Image src="/imagem.png" alt="Featured Recipe" width={300} height={200} />
+              <Image src="/NOOOOOO.jpg" alt="Featured Recipe" width={300} height={200} />
               <h3 className={Styles.highlightItemTitle}>Recipe Name</h3>
               <p className={Styles.highlightItemDescription}>Recipe description</p>
             </section>
