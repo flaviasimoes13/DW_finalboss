@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
                 <img src="stopwatch.png" alt="quick recipes" width="30px" height="30px" /> Quick Recipes
               </Link>
               <Link className={`${Styles.link} ${Styles.separator}`} href="/myRecipes">
-                <img src="home.png" alt="my recipes" width="30px" height="30px" /> My Recipes
+                <img src="myrec.png" alt="my recipes" width="30px" height="30px" /> My Recipes
               </Link>
               <Link className={`${Styles.link} ${Styles.separator}`} href="/addRecipes">
                 <img src="home.png" alt="add recipe" width="30px" height="30px" /> Add Recipes

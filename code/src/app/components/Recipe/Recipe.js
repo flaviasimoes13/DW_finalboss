@@ -3,7 +3,7 @@ import Styles from "./Recipe.module.scss";
 export default function Recipe(props){
     return(
         <div className={Styles.recipe}>
-            <img className={Styles.image} 
+            <img className={Styles.recipe__image} 
                 src={props.src}
                 width={'100%'}
                 height={'auto'}

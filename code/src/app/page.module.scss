@@ -9,7 +9,7 @@
     padding: 30px;
     margin-bottom: 20px;
     gap: 20px;
-    width: 1220px;
+    width: 910px;
 }
 
 
@@ -23,7 +23,7 @@
     padding: 30px;
     color: colors.$black-color;
     margin-bottom: 20px;
-    width: 1220px;
+    width: 910px;
 
         background-color: colors.$lightblue-color;
         overflow: hidden;
@@ -76,5 +76,26 @@
                 border-radius: 8px;
             }
         }
+    }
+}
+
+
+
+@media (max-width: 1160px) {
+    %common-layout{
+        width:600px;
+    }
+}
+
+@media (max-width: 850px){
+    %common-layout{
+        width:300px;
+    }
+
+    .quickRecipesItem {
+        gap: 30px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
     }
 }
