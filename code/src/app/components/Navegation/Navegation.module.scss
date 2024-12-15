@@ -1,0 +1,83 @@
+@use "../../styles/colors";
+
+.navegation {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  background-color: colors.$brown-color;
+  padding-top: 15px;
+}
+
+.hamburguer {
+  display: none;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 15pt;
+    color: colors.$lightblue-color;
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .logo {
+    width: 80%;
+    height: auto;
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  padding-top: 15px;
+  gap: 10px;
+}
+
+.separator {
+  border-top: 1px solid colors.$lightblue-color;
+}
+
+@media (max-width: 768px) {
+  .navegation {
+    &__open {
+      width: 250px;
+    }
+    &__closed {
+      width: 100px;
+    }
+  }
+
+  .menu {
+    z-index: 2;
+
+    &__open {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .hamburguer {
+    display: block;
+    all: unset;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 3;
+  }
+
+  .p {
+    &__open {
+      display: block;
+    }
+    &__closed {
+      display: none;
+    }
+  }
+}

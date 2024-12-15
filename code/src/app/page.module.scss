@@ -26,7 +26,7 @@
     padding: 30px;
     color: #000;
     margin-bottom: 20px;
-    width: 1220px;
+    width: 910px;
     box-sizing: border-box;
 
     .highlightContent {
@@ -98,10 +98,19 @@
     %common-layout{
         width:600px;
     }
+
+    .highlightItem {
+        width:600px;
+    }
+
 }
 
 @media (max-width: 850px){
     %common-layout{
+        width:300px;
+    }
+
+    .highlightItem {
         width:300px;
     }
 
