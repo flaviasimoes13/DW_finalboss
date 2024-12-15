@@ -1,12 +1,31 @@
-.highlights {
-    flex: 4 1;
-    background-color: #f9f9f9;
-    padding: 1rem;
-    color: black;
-    margin-bottom: 20px;
+@use 'styles/colors';
 
-    .highlightItem {
-        background-color: #fff;
+%common-layout{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: colors.$lightblue-color;
+    color: colors.$black-color;
+    padding: 30px;
+    margin-bottom: 20px;
+    gap: 20px;
+    width: 1220px;
+}
+
+
+.sectionTitle{
+    width:100%;
+    font-size: 2.2rem;
+}
+
+.highlightItem {
+    background-color: colors.$greyblue-color;
+    padding: 30px;
+    color: colors.$black-color;
+    margin-bottom: 20px;
+    width: 1220px;
+
+        background-color: colors.$lightblue-color;
         overflow: hidden;
 
         img {
@@ -26,55 +45,27 @@
             text-align: center;
         }
     }
-}
+
 
 .quickRecipes {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    background-color: #f9f9f9;
-    padding: 1rem;
-    color: black;
-    margin-bottom: 20px;
+    @extend %common-layout;
 
     .quickRecipesItem {
-        display: grid;
+        gap: 30px 80px;
+        display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-around;
-        overflow: hidden;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 100px);
-        gap: 10px;
-
-        .recipe {
-            width: 100%;
-            border-radius: 8px;
-
-            img {
-                width: 100%;
-                border-radius: 8px;
-            }
-        }
     }
 }
 
 .myRecipes {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    background-color: #f9f9f9;
-    padding: 1rem;
-    color: black;
-    margin-bottom: 20px;
+    @extend %common-layout;
 
     .myRecipesItem {
-        display: grid;
+        gap: 30px 80px;
+        display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-around;
-        overflow: hidden;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 100px);
-        gap: 10px;
 
         .recipe {
             width: 100%;

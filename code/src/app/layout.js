@@ -25,27 +25,25 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <header className={Styles.header}>
-          <img src="favicon.png" alt="Logo" width="50" height="50" className={Styles.logo} />
-          <h1 className={Styles.title}>Cooker</h1>
-        </header>
 
-        <div className={Styles.mainLayout}>
           <nav className={Styles.nav}>
-            <Link className={Styles.link} href="/">
-              <img src="home.png" alt="home" width="30px" height="30px" /> Home
-            </Link>
-            <Link className={`${Styles.link} ${Styles.separator}`} href="/quickRecipes">
-              <img src="stopwatch.png" alt="quick recipes" width="30px" height="30px" /> Quick Recipes
-            </Link>
-            <Link className={`${Styles.link} ${Styles.separator}`} href="/myRecipes">
-              <img src="myrec.png" alt="my recipes" width="30px" height="30px" /> My Recipes
-            </Link>
-            <Link className={`${Styles.link} ${Styles.separator}`} href="/myRecipes">
-              <img src="mais.png" alt="add recipe" width="30px" height="30px" /> Add Recipes
-            </Link>
+            <img src="logo.png" alt="Logo" className={Styles.logo} />
+
+            <div className={Styles.links}>
+              <Link className={Styles.link} href="/">
+                <img src="home.png" alt="home" width="30px" height="30px" /> Home
+              </Link>
+              <Link className={`${Styles.link} ${Styles.separator}`} href="/quickRecipes">
+                <img src="stopwatch.png" alt="quick recipes" width="30px" height="30px" /> Quick Recipes
+              </Link>
+              <Link className={`${Styles.link} ${Styles.separator}`} href="/myRecipes">
+                <img src="home.png" alt="my recipes" width="30px" height="30px" /> My Recipes
+              </Link>
+              <Link className={`${Styles.link} ${Styles.separator}`} href="/addRecipes">
+                <img src="home.png" alt="add recipe" width="30px" height="30px" /> Add Recipes
+              </Link>
+            </div>
           </nav>
-        </div>
 
         <main className={Styles.content}>
           {children}

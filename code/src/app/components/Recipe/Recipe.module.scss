@@ -1,12 +1,22 @@
+$greyblue-color: #8CA6B3;
+$lightblue-color: #D8E5ED;
+$beige-color: #E2CEB6;
+$brown-color: #563530;
+$black-color: #21161A;
+
 .recipe{
     position: relative;
-gap:10px;
+    background-color: $greyblue-color;
+    padding: 15px 12px 25px 12px;
+    width: 230px;
+    height: 230px;
+
     &__name{
-        color:orange;
+        color:$black-color;
     }
 
     &__category{
-        color:red;
+        color:$black-color
     }
 }
 
