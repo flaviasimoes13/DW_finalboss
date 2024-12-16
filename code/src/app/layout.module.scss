@@ -1,6 +1,12 @@
 .content {
-  margin-left: 250px;
   display: flex;
+  margin-left: 250px;
   flex-direction: column;
   align-items: center;
+}
+
+@media (max-width: 850px) {
+  .content {
+    margin-left: 70px;
+  }
 }

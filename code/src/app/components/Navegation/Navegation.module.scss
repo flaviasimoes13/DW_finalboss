@@ -3,9 +3,12 @@
 .navegation {
   width: 250px;
   height: 100vh;
-  position: fixed;
-  background-color: colors.$brown-color;
+  position: fixed; // Mantém o menu fixo na tela
+  top: 0;
+  left: 0;
+  background-color: colors.$greyblue-color;
   padding-top: 15px;
+  z-index: 9999; // Garante que o menu fique por cima de tudo
 }
 
 .hamburguer {
@@ -40,17 +43,19 @@
   gap: 10px;
 }
 
-.separator {
+/*.separator {
   border-top: 1px solid colors.$lightblue-color;
-}
+}*/
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
   .navegation {
     &__open {
       width: 250px;
+      transition: width 0.3s ease-in-out;
     }
     &__closed {
-      width: 100px;
+      width: 70px;
+      transition: width 0.3s ease-in-out;
     }
   }
 
@@ -60,6 +65,16 @@
     &__open {
       display: flex;
       flex-direction: column;
+      align-items: flex-start;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &__closed {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      transition: all 0.3s ease-in-out;
     }
   }
 
@@ -79,5 +94,43 @@
     &__closed {
       display: none;
     }
+  }
+
+  .logo {
+    &__open {
+      display: none;
+    }
+    &__closed {
+      display: none;
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 5px 10px;
+  }
+
+  .menu__closed .link {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: auto;
+    padding: 0;
+  }
+
+  .separator {
+    //border-top: 1px solid #ccc;
+    margin: 10px 0 0 0;
   }
 }

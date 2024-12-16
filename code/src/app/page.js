@@ -13,6 +13,8 @@ export default function Home() {
           <h2 className={Styles.sectionTitle}>Featured Recipe</h2>
           <h3 className={Styles.highlightItemTitle}>Recipe Name</h3>
           <p className={Styles.highlightItemDescription}>Recipe description</p>
+          <button type="button" className={Styles.highlightItemButton}>Start Cooking ➔</button>
+          
         </div>
         <Image
           src="/NOOOOOO.jpg"
@@ -79,36 +81,12 @@ export default function Home() {
             name="capi"
             category="CARNE"
           />
-          <Recipe
-            src="/capivarateste.webp"
-            alt="yummy capivara"
-            name="capi"
-            category="CARNE"
-          />
         </div>
       </section>
 
       <section className={Styles.myRecipes}>
         <h2 className={Styles.sectionTitle}>My Recipes</h2>
         <div className={Styles.myRecipesItem}>
-          <Recipe
-            src="/capivarateste.webp"
-            alt="yummy capivara"
-            name="capi"
-            category="CARNE"
-          />
-          <Recipe
-            src="/capivarateste.webp"
-            alt="yummy capivara"
-            name="capi"
-            category="CARNE"
-          />
-          <Recipe
-            src="/capivarateste.webp"
-            alt="yummy capivara"
-            name="capi"
-            category="CARNE"
-          />
           <Recipe
             src="/capivarateste.webp"
             alt="yummy capivara"

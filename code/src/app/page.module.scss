@@ -8,37 +8,27 @@
     color: colors.$black-color;
     padding: 30px;
     margin-bottom: 20px;
-    gap: 20px;
-    width: 910px;
+    width: 100%;
 }
 
 .sectionTitle {
     width: 100%;
     font-size: 2.2rem;
     padding-bottom: 20px;
+    color: colors.$brown-color;
+    text-align: left;
 }
 
 .highlightItem {
-    display: flex;
-    align-items: stretch;
+    @extend %common-layout;
+    flex-direction: row;
     justify-content: space-between;
-    background-color: #f5f5f5;
-    padding: 30px;
-    color: #000;
-    margin-bottom: 20px;
-    width: 910px;
     box-sizing: border-box;
 
     .highlightContent {
         flex-direction: column;
         justify-content: center;
-        width: 55%;
-    }
-
-    .highlightItemTitle {
-        width: 100%;
-        font-size: 2.2rem;
-        padding-bottom: 20px;
+        width: 80%;
     }
 
     .highlightItemTitle {
@@ -53,71 +43,74 @@
         text-align: left;
     }
 
+    button {
+        font-size: 1rem;
+        padding: 10px 20px;
+        background-color: colors.$brown-color;
+        color: colors.$beige-color;
+        position: relative;
+        top: 30px;
+    }
+
     img {
-        max-width: 45%;
-        height: auto;
+        width: 100%;
+        border-radius: 8px;
         object-fit: cover;
     }
 }
 
-.quickRecipes {
-    @extend %common-layout;
-
-    .quickRecipesItem {
-        gap: 30px 80px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-}
-
+.quickRecipes,
 .myRecipes {
     @extend %common-layout;
 
+    .quickRecipesItem,
     .myRecipesItem {
-        gap: 30px 80px;
+        gap: 30px 14%;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
 
-        .recipe {
+        .recipe img {
             width: 100%;
             border-radius: 8px;
-
-            img {
-                width: 100%;
-                border-radius: 8px;
-            }
         }
     }
 }
 
-
-
-@media (max-width: 1160px) {
-    %common-layout{
-        width:600px;
+@media (max-width: 850px) {
+    %common-layout {
+        width: 100%;
     }
 
-    .highlightItem {
-        width:600px;
+    .quickRecipesItem,
+    .myRecipesItem {
+        flex-direction: column;
     }
-
 }
 
-@media (max-width: 850px){
-    %common-layout{
-        width:300px;
-    }
-
+@media (max-width: 585px) {
     .highlightItem {
-        width:300px;
-    }
-
-    .quickRecipesItem {
-        gap: 30px;
-        display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
+        padding: 20px;
+
+        img {
+            order: -1;
+            margin-bottom: 15px;
+        }
+
+        .highlightContent {
+            text-align: center;
+            width: 100%;
+        }
+
+        .highlightItemTitle {
+            font-size: 1.8rem;
+            padding-bottom: 10px;
+        }
+
+        .highlightItemDescription {
+            font-size: 0.9rem;
+            padding-bottom: 15px;
+        }
     }
 }

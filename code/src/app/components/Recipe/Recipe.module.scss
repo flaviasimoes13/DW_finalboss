@@ -1,33 +1,32 @@
-$greyblue-color: #8CA6B3;
-$lightblue-color: #D8E5ED;
-$beige-color: #E2CEB6;
+$greyblue-color: #8ca6b3;
+$lightblue-color: #d8e5ed;
+$beige-color: #e2ceb6;
 $brown-color: #563530;
-$black-color: #21161A;
+$black-color: #21161a;
 
-.recipe{
+.recipe {
     position: relative;
-    background-color: $greyblue-color;
-    padding: 15px 12px 25px 12px;
+    background-color: $beige-color;
+    border: 7px solid $greyblue-color;
+    padding: 15px 12px 15px 12px;
     width: 230px;
-    height: 230px;
+    height: 240px;
 
-    &__image{
-        width:100%;
-        height:auto;
+    &__image {
+        width: 100%;
+        height: auto;
     }
 
-    &__name{
-        color:$black-color;
+    &__name {
+        color: $black-color;
     }
 
-    &__category{
-        color:$black-color
+    &__category {
+        color: $black-color;
     }
 }
 
-.text{
-    position: absolute;
-    bottom:0px;
+.text {
+    position: relative;
+    top: 20px;
 }
-
-
