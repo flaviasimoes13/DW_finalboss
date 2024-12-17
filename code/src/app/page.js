@@ -1,9 +1,8 @@
 import Image from "next/image";
 import Styles from "./page.module.scss";
-import Link from "next/link";
 
 //componentes têm que ser importados
-import Recipe from "./components/Recipe/Recipe";
+import Recipe from "./components/RecipeCard/RecipeCard";
 
 export default function Home() {
   return (

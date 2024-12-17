@@ -1,0 +1,95 @@
+$greyblue-color: #8ca6b3;
+$lightblue-color: #e6f5ff;
+$beige-color: #FFF6EA;
+$brown-color: #563530;
+$black-color: #21161a;
+
+.recipe {
+    display: flex;
+    flex-direction: column;
+    background-color: $beige-color;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 7px solid $greyblue-color;
+  
+    &__content {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+  
+    &__imageWrapper {
+      flex: 0 0 150px;
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        object-fit: cover;
+      }
+    }
+  
+    &__text {
+      flex: 1;
+      color: $black-color;
+  
+      h2 {
+        font-size: 1.8rem;
+        margin: 0 0 10px;
+        color: $black-color;
+      }
+  
+      h3 {
+        font-size: 1.4rem;
+        margin: 0 0 10px;
+        font-weight: 500;
+        color: $black-color;
+      }
+  
+      p {
+        font-size: 1rem;
+        color: $brown-color;
+        line-height: 1.5;
+      }
+    }
+  }
+  
+  @media (max-width: 585px) {
+    .recipe {
+      padding: 15px; // Reduz o padding em telas pequenas
+      border-width: 5px; // Ajusta a espessura da borda
+  
+      &__content {
+        flex-direction: column; // Empilha os elementos verticalmente
+        text-align: center; // Centraliza o texto
+        gap: 10px; // Reduz o espaçamento entre os elementos
+      }
+  
+      &__imageWrapper {
+        flex: 0 0 auto; // Permite que a imagem ajuste a altura
+        width: 100%; // Faz a imagem ocupar toda a largura
+        max-width: 300px; // Define um limite para a largura da imagem
+        margin: 0 auto; // Centraliza a imagem horizontalmente
+  
+        img {
+          border-radius: 8px;
+          object-fit: cover;
+        }
+      }
+  
+      &__text {
+        h2 {
+          font-size: 1.5rem; // Reduz o tamanho do título
+        }
+  
+        h3 {
+          font-size: 1.2rem; // Ajusta a categoria
+        }
+  
+        p {
+          font-size: 0.9rem; // Reduz o tamanho da descrição
+        }
+      }
+    }
+  }
+  

@@ -4,10 +4,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    justify-content: space-between;
     background-color: colors.$lightblue-color;
     color: colors.$black-color;
-    padding: 30px;
-    margin-bottom: 20px;
+    padding: 30px 30px 50px 30px;
+    margin: 0;
     width: 100%;
 }
 
@@ -24,6 +26,7 @@
     flex-direction: row;
     justify-content: space-between;
     box-sizing: border-box;
+    color: colors.$black-color;
 
     .highlightContent {
         flex-direction: column;
@@ -35,21 +38,25 @@
         font-size: 1.5rem;
         margin: 0;
         text-align: left;
+        color: colors.$black-color;
     }
 
     .highlightItemDescription {
         font-size: 1rem;
         margin: 0;
         text-align: left;
+        color: colors.$black-color;
     }
 
     button {
         font-size: 1rem;
-        padding: 10px 20px;
+        padding: 10px 20px 12px 20px;
         background-color: colors.$brown-color;
         color: colors.$beige-color;
         position: relative;
         top: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     img {
@@ -62,17 +69,28 @@
 .quickRecipes,
 .myRecipes {
     @extend %common-layout;
+    padding: 30px;
+    margin: 0;
+    width: 100%; /* Garante que o container ocupa toda a largura */
 
     .quickRecipesItem,
     .myRecipesItem {
-        gap: 30px 14%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        display: grid; /* Define layout como grid */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adapta o número de itens por linha */
+        gap: 50px; /* Espaçamento entre os itens */
+        width: 100%; /* Garante largura total */
+        height: 100%; /* Adiciona altura total do container */
+        justify-content: center; /* Centraliza horizontalmente */
+        align-content: center; /* Centraliza verticalmente */
+        margin: 0 auto; /* Centraliza dentro do container pai */
 
-        .recipe img {
-            width: 100%;
-            border-radius: 8px;
+        .recipe {
+            width: 100%; /* Garante que cada item ocupa o espaço definido pelo grid */
+            img {
+                width: 100%;
+                border-radius: 8px;
+                object-fit: cover;
+            }
         }
     }
 }

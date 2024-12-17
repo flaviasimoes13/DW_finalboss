@@ -1,27 +1,59 @@
-@use '../styles/colors';
+$greyblue-color: #8ca6b3;
+$lightblue-color: #e6f5ff;
+$beige-color: #e2ceb6;
+$brown-color: #563530;
+$black-color: #21161a;
 
-.sectionTitle{
-    width:100%;
-    font-size: 2.2rem;
-}
-
-.quickRecipes {
+%common-layout {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: colors.$lightblue-color;
-    color: colors.$black-color;
+    justify-content: space-between;
+    background-color: $lightblue-color;
+    color: $black-color;
     padding: 30px;
     margin-bottom: 20px;
-    gap: 20px;
-    width: 1220px;
+    width: 100%;
+}
 
+.sectionTitle {
+    width: 100%;
+    font-size: 2.2rem;
+    padding-bottom: 20px;
+    color: $brown-color;
+    text-align: left;
+}
+
+.quickRecipes {
+    @extend %common-layout;
+    padding: 30px;
+    margin: 0;
+    width: 100%;
 
     .quickRecipesItem {
-        gap: 30px 80px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    
+        display: flex; /* Mudar de grid para flex */
+        flex-direction: column; /* Organizar os itens em coluna */
+        gap: 50px;
+        width: 100%;
+        align-items: flex-start;
+        margin: 0 auto;
+
+        .recipe {
+            width: 100%;
+            img {
+                width: 100%;
+                border-radius: 8px;
+                object-fit: cover;
+            }
+        }
     }
 }
+
+@media (max-width: 850px) {
+    .quickRecipes .quickRecipesItem {
+        gap: 30px;
+        padding: 0 20px;
+    }
+}
+
+  
