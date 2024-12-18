@@ -23,7 +23,6 @@ const QuickRecipes = () => {
 
   return (
     <div>
-      <h2 className={Styles.heading}>Quick Recipes</h2>
       <div className={Styles.recipesList}>
         {recipes.map((recipe) => (
           <Link
