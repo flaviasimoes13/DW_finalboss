@@ -13,12 +13,20 @@
     width: 100%;
 }
 
-.sectionTitle {
+.highlightsectionTitle{
     width: 100%;
     font-size: 2.2rem;
     padding-bottom: 20px;
     color: colors.$brown-color;
     text-align: left;
+}
+
+.sectionTitle {
+    width: 100%;
+    font-size: 2.2rem;
+    padding-bottom: 20px;
+    color: colors.$brown-color;
+    text-align: center;
 }
 
 .highlightItem {
