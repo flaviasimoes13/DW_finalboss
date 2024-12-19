@@ -7,7 +7,7 @@ export default function RecipeCard(recipe) {
   return (
     <Link
       className={Styles.link}
-      key={recipe._id}
+      key={recipe._id} 
       href={`/recipe/${recipe._id}`}
     >
       <div className={Styles.recipe}>
