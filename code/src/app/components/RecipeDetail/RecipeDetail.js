@@ -1,34 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Styles from "./RecipeDetail.module.scss"; 
-import Link from "next/link"; // For linking to detailed recipe pages
+import Styles from "./RecipeDetail.module.scss";
+import Link from "next/link"; 
 
-const QuickRecipes = () => {
-  const [recipes, setRecipes] = useState([]);
-
-  useEffect(() => {
-    const fetchRecipes = async () => {
-      try {
-        const response = await fetch("/api/recipes");
-        const data = await response.json();
-        setRecipes(data);
-      } catch (error) {
-        console.error("Error fetching recipes:", error);
-      }
-    };
-
-    fetchRecipes();
-  }, []);
-
+export default function RecipeDetail(recipe) {
   return (
     <div>
       <div className={Styles.recipesList}>
-        {recipes.map((recipe) => (
           <Link
             className={Styles.link}
             key={recipe._id}
-            href={`/recipe/${recipe._id}`} // Dynamic link to detailed recipe page
+            href={`/recipe/${recipe._id}`}
           >
             <div className={Styles.recipe}>
               <div className={Styles.recipe__content}>
@@ -51,10 +33,8 @@ const QuickRecipes = () => {
               </div>
             </div>
           </Link>
-        ))}
       </div>
     </div>
   );
 };
 
-export default QuickRecipes;

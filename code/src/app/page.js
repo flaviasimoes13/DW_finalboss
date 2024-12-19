@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Styles from "./page.module.scss";
-import Image from "next/image";
-
 import RecipeCard from "./components/RecipeCard/RecipeCard";
 
 export default function Home() {
@@ -15,7 +13,7 @@ export default function Home() {
       try {
         const response = await fetch("/api/recipes");
         const data = await response.json();
-        setRecipes(data); 
+        setRecipes(data); // Armazenando as receitas no estado
 
         // Seleciona uma receita aleatória
         if (data.length > 0) {
@@ -37,12 +35,12 @@ export default function Home() {
   return (
     <>
       <section className={Styles.highlightItem}>
-        <div className={Styles.highlightContent}>
+        <div className={Styles.highlightText}>
           <h2 className={Styles.highlightsectionTitle}>Featured Recipe</h2>
           {featuredRecipe ? (
             <>
               <h3 className={Styles.highlightItemTitle}>
-                {featuredRecipe.name || "No name available"}
+                {featuredRecipe.recipe_name || "No name available"}
               </h3>
               <p className={Styles.highlightItemDescription}>
                 {featuredRecipe.description || "No description available."}
@@ -56,13 +54,14 @@ export default function Home() {
           )}
         </div>
         {featuredRecipe && (
-          <Image
+          <img
             src={
-              featuredRecipe.image && featuredRecipe.image.startsWith("http")
-                ? featuredRecipe.image
+              featuredRecipe.image_link &&
+              featuredRecipe.image_link.startsWith("http")
+                ? featuredRecipe.image_link
                 : "/default-image.jpg"
-            } // Fallback para imagem padrão
-            alt={featuredRecipe.name}
+            }
+            alt={featuredRecipe.recipe_name}
             width={300}
             height={200}
           />
@@ -72,10 +71,24 @@ export default function Home() {
       <section className={Styles.quickRecipes}>
         <h2 className={Styles.sectionTitle}>Quick Recipes</h2>
         <div className={Styles.quickRecipesItem}>
-        
+          {quickRecipes.length > 0 ? (
+            quickRecipes
+              .slice(0, 9)
+              .map((recipe) => (
+                <RecipeCard
+                  key={recipe._id}
+                  recipe_name={recipe.recipe_name}
+                  image_link={recipe.image_link}
+                  category={recipe.category}
+                />
+              ))
+          ) : (
+            <p>No quick recipes available.</p>
+          )}
         </div>
       </section>
 
+      {/*
       <section className={Styles.myRecipes}>
         <h2 className={Styles.sectionTitle}>My Recipes</h2>
         <div className={Styles.myRecipesItem}>
@@ -84,6 +97,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+      */}
     </>
   );
 }

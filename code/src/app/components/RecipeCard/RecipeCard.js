@@ -1,15 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Styles from "./RecipeCard.module.scss";
 import Link from "next/link";
 
-export default function RecipeCard (recipe){
+export default function RecipeCard(recipe) {
   return (
     <Link
       className={Styles.link}
-      key={recipe.key}
-      href={`/recipe/${recipe.key}`}
+      key={recipe._id}
+      href={`/recipe/${recipe._id}`}
     >
       <div className={Styles.recipe}>
         <img
@@ -21,11 +20,11 @@ export default function RecipeCard (recipe){
         />
         <div className={Styles.text}>
           <h2 className={Styles.recipe__name}>{recipe.recipe_name}</h2>
-          <h3 className={Styles.recipe__category}>Category: {recipe.category}</h3>
+          <h3 className={Styles.recipe__category}>
+            Category: {recipe.category}
+          </h3>
         </div>
       </div>
     </Link>
   );
-};
-
-
+}

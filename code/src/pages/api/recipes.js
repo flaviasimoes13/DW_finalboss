@@ -9,7 +9,6 @@ export default async function handler(req, res) {
       const client = await MongoClient.connect(uri);
       const db = client.db(dbName);
 
-      // Fetch all recipes without any filtering
       const recipes = await db.collection("allrecipes").find().toArray();
 
       res.status(200).json(recipes);

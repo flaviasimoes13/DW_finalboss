@@ -1,142 +1,151 @@
 @use "styles/colors";
 
 %common-layout {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    justify-content: space-between;
-    background-color: colors.$lightblue-color;
-    color: colors.$black-color;
-    padding: 30px 30px 50px 30px;
-    margin: 0;
-    width: 100%;
-}
-
-.highlightsectionTitle{
-    width: 100%;
-    font-size: 2.2rem;
-    padding-bottom: 20px;
-    color: colors.$brown-color;
-    text-align: left;
-}
-
-.sectionTitle {
-    width: 100%;
-    font-size: 2.2rem;
-    padding-bottom: 20px;
-    color: colors.$brown-color;
-    text-align: center;
+  justify-content: space-between;
+  background-color: colors.$lightblue-color;
+  color: colors.$black-color;
+  padding: 30px 30px 50px 30px;
+  margin: 0;
+  width: 100%;
 }
 
 .highlightItem {
-    @extend %common-layout;
-    flex-direction: row;
-    justify-content: space-between;
-    box-sizing: border-box;
-    color: colors.$black-color;
+  @extend %common-layout;
+  flex-direction: row;
+  justify-content: space-between;
 
-    .highlightContent {
-        flex-direction: column;
-        justify-content: center;
-        width: 80%;
+  .highlightText {
+    justify-content: center;
+    width: 100%;
+
+    .highlightsectionTitle {
+      width: 100%;
+      font-size: 2.2rem;
+      padding-bottom: 20px;
+      color: colors.$brown-color;
     }
 
     .highlightItemTitle {
-        font-size: 1.5rem;
-        margin: 0;
-        text-align: left;
-        color: colors.$black-color;
+      font-size: 1.5rem;
+      color: colors.$black-color;
     }
 
     .highlightItemDescription {
-        font-size: 1rem;
-        margin: 0;
-        text-align: left;
-        color: colors.$black-color;
+      font-size: 1rem;
+      width: 100%;
+      color: colors.$black-color;
     }
 
     button {
-        font-size: 1rem;
-        padding: 10px 20px 12px 20px;
-        background-color: colors.$brown-color;
-        color: colors.$beige-color;
-        position: relative;
-        top: 30px;
-        border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      font-size: 1rem;
+      padding: 10px 20px 12px 20px;
+      background-color: colors.$brown-color;
+      color: colors.$beige-color;
+      position: relative;
+      top: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
+  }
 
-    img {
-        width: 100%;
-        border-radius: 8px;
-        object-fit: cover;
-    }
+  img {
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+}
+
+.sectionTitle {
+  width: 100%;
+  font-size: 2.2rem;
+  padding-bottom: 20px;
+  color: colors.$brown-color;
+  text-align: center;
 }
 
 .quickRecipes,
 .myRecipes {
-    @extend %common-layout;
-    padding: 30px;
-    margin: 0;
-    width: 100%; /* Garante que o container ocupa toda a largura */
+  @extend %common-layout;
+  padding: 30px;
+  margin: 0;
+  width: 100%; /* Garante que o container ocupa toda a largura */
 
-    .quickRecipesItem,
-    .myRecipesItem {
-        display: grid; /* Define layout como grid */
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adapta o número de itens por linha */
-        gap: 50px; /* Espaçamento entre os itens */
-        width: 100%; /* Garante largura total */
-        height: 100%; /* Adiciona altura total do container */
-        justify-content: center; /* Centraliza horizontalmente */
-        align-content: center; /* Centraliza verticalmente */
-        margin: 0 auto; /* Centraliza dentro do container pai */
+  .quickRecipesItem,
+  .myRecipesItem {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 70px;
+    width: 1130px;
 
-        .recipe {
-            width: 100%; /* Garante que cada item ocupa o espaço definido pelo grid */
-            img {
-                width: 100%;
-                border-radius: 8px;
-                object-fit: cover;
-            }
-        }
+    .recipe {
+      width: 100%; /* Garante que cada item ocupa o espaço definido pelo grid */
+      img {
+        width: 100%;
+        border-radius: 8px;
+        object-fit: cover;
+      }
     }
+  }
 }
 
-@media (max-width: 850px) {
-    %common-layout {
-        width: 100%;
-    }
-
+@media (max-width: 1400px) {
+  .quickRecipes,
+  .myRecipes {
     .quickRecipesItem,
     .myRecipesItem {
-        flex-direction: column;
+      width: 790px;
+      gap: 50px;
     }
+  }
+}
+
+@media (max-width: 1000px) {
+  .quickRecipes,
+  .myRecipes {
+    .quickRecipesItem,
+    .myRecipesItem {
+      width: 490px;
+      gap: 30px;
+    }
+  }
 }
 
 @media (max-width: 585px) {
-    .highlightItem {
-        flex-direction: column;
-        padding: 20px;
+  .highlightItem {
+    flex-direction: column;
+    padding: 20px;
 
-        img {
-            order: -1;
-            margin-bottom: 15px;
-        }
-
-        .highlightContent {
-            text-align: center;
-            width: 100%;
-        }
-
-        .highlightItemTitle {
-            font-size: 1.8rem;
-            padding-bottom: 10px;
-        }
-
-        .highlightItemDescription {
-            font-size: 0.9rem;
-            padding-bottom: 15px;
-        }
+    img {
+      order: -1;
+      margin-bottom: 15px;
     }
+
+    .highlightContent {
+      text-align: center;
+      width: 100%;
+    }
+
+    .highlightItemTitle {
+      font-size: 1.8rem;
+      padding-bottom: 10px;
+    }
+
+    .highlightItemDescription {
+      font-size: 0.9rem;
+      padding-bottom: 15px;
+    }
+  }
+
+  .quickRecipes,
+  .myRecipes {
+    .quickRecipesItem,
+    .myRecipesItem {
+      width: 230px;
+    }
+  }
 }

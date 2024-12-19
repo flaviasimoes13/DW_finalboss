@@ -1,16 +1,12 @@
-$greyblue-color: #8ca6b3;
-$lightblue-color: #e6f5ff;
-$beige-color: #e2ceb6;
-$brown-color: #563530;
-$black-color: #21161a;
+@use "../styles/colors";
 
 %common-layout {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: $lightblue-color;
-    color: $black-color;
+    background-color: colors.$lightblue-color;
+    color: colors.$black-color;
     padding: 30px;
     margin-bottom: 20px;
     width: 100%;
@@ -20,7 +16,7 @@ $black-color: #21161a;
     width: 100%;
     font-size: 2.2rem;
     padding-bottom: 20px;
-    color: $brown-color;
+    color: colors.$brown-color;
     text-align: left;
 }
 
