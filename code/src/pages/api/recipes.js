@@ -1,8 +1,8 @@
 import { MongoClient } from "mongodb";
 
 export default async function handler(req, res) {
-  const uri = "mongodb://127.0.0.1:27017"; // Replace with your MongoDB connection string
-  const dbName = "recipes"; // Replace with your database name
+  const uri = "mongodb://127.0.0.1:27017";
+  const dbName = "recipes"; 
 
   if (req.method === "GET") {
     try {

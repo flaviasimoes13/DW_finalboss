@@ -8,14 +8,56 @@ export default function Home() {
   const [recipes, setRecipes] = useState([]);
   const [featuredRecipe, setFeaturedRecipe] = useState(null);
 
+  //
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const recipesResponse = await fetch("/api/recipes");
+        const recipesData = await recipesResponse.json();
+  
+        const categoriesResponse = await fetch("/api/categories");
+        const categoriesData = await categoriesResponse.json();
+  
+        // Create a mapping of category IDs to names
+        const categoryMap = categoriesData.reduce((map, category) => {
+          map[category._id] = category.name; // Assuming category has _id and name fields
+          return map;
+        }, {});
+  
+        // Merge recipes with category names
+        const enrichedRecipes = recipesData.map((recipe) => ({
+          ...recipe,
+          category_name: categoryMap[recipe.category] || "Unknown",
+        }));
+  
+        console.log("Enriched Recipes:", enrichedRecipes); // Debugging
+  
+        // Update state
+        setRecipes(enrichedRecipes);
+  
+        // Select a random featured recipe
+        if (enrichedRecipes.length > 0) {
+          const randomRecipe =
+            enrichedRecipes[Math.floor(Math.random() * enrichedRecipes.length)];
+          setFeaturedRecipe(randomRecipe);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+  
+    fetchData();
+  }, []);
+  
+
+  /*
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
         const response = await fetch("/api/recipes");
         const data = await response.json();
-        setRecipes(data); // Armazenando as receitas no estado
+        setRecipes(data); 
 
-        // Seleciona uma receita aleatória
         if (data.length > 0) {
           const randomRecipe = data[Math.floor(Math.random() * data.length)];
           setFeaturedRecipe(randomRecipe);
@@ -28,10 +70,12 @@ export default function Home() {
     fetchRecipes();
   }, []);
 
+*/
+
   const quickRecipes = recipes.filter(
     (recipe) => recipe.duration && recipe.duration <= 35
   );
-
+  console.log("Quick Recipes:", quickRecipes);
   return (
     <>
       <section className={Styles.highlightItem}>
@@ -79,7 +123,7 @@ export default function Home() {
                   key={recipe._id}
                   recipe_name={recipe.recipe_name}
                   image_link={recipe.image_link}
-                  category={recipe.category}
+                  category={recipe.category_name} //_name
                 />
               ))
           ) : (
