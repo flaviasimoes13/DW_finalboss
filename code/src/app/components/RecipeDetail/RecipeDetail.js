@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Styles from "./RecipeDetail.module.scss"; // Import the SASS module
+import Styles from "./RecipeDetail.module.scss"; 
 import Link from "next/link"; // For linking to detailed recipe pages
 
 const QuickRecipes = () => {

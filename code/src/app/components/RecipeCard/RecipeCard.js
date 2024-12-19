@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import Styles from "./RecipeCard.module.scss";
 import Link from "next/link";
 
-const RecipeCard = ({ recipe }) => {
+export default function RecipeCard (recipe){
   return (
     <Link
       className={Styles.link}
-      key={recipe._id}
-      href={`/recipe/${recipe._id}`}
+      key={recipe.key}
+      href={`/recipe/${recipe.key}`}
     >
       <div className={Styles.recipe}>
         <img
@@ -28,4 +28,4 @@ const RecipeCard = ({ recipe }) => {
   );
 };
 
-export default RecipeCard;
+

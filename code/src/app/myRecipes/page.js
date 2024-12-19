@@ -1,4 +1,3 @@
-import Recipe from "../components/RecipeDetail/RecipeDetail";
 import Styles from "./page.module.scss";
 import RecipeDetail from "../components/RecipeDetail/RecipeDetail";
 

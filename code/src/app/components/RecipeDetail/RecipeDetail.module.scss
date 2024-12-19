@@ -1,17 +1,13 @@
-$greyblue-color: #8ca6b3;
-$lightblue-color: #e6f5ff;
-$beige-color: #FFF6EA;
-$brown-color: #563530;
-$black-color: #21161a;
+@use "../../styles/colors";
 
 .recipe {
     display: flex;
     flex-direction: column;
-    background-color: $beige-color;
+    background-color: colors.$beige-color;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 7px solid $greyblue-color;
+    border: 7px solid colors.$greyblue-color;
     margin-bottom: 30px;
   
     &__content {
@@ -23,8 +19,8 @@ $black-color: #21161a;
     &__imageWrapper {
       flex: 0 0 150px;
       img {
-        width: 100%;
-        height: auto;
+        width: 350px;
+        height: 200px;
         border-radius: 8px;
         object-fit: cover;
       }
@@ -32,24 +28,24 @@ $black-color: #21161a;
   
     &__text {
       flex: 1;
-      color: $black-color;
+      color: colors.$black-color;
   
       h2 {
         font-size: 1.8rem;
         margin: 0 0 10px;
-        color: $black-color;
+        color: colors.$black-color;
       }
   
       h3 {
         font-size: 1.4rem;
         margin: 0 0 10px;
         font-weight: 500;
-        color: $black-color;
+        color: colors.$black-color;
       }
   
       p {
         font-size: 1rem;
-        color: $brown-color;
+        color: colors.$brown-color;
         line-height: 1.5;
       }
     }
@@ -69,10 +65,12 @@ $black-color: #21161a;
       &__imageWrapper {
         flex: 0 0 auto; // Permite que a imagem ajuste a altura
         width: 100%; // Faz a imagem ocupar toda a largura
+        height: auto;
         max-width: 300px; // Define um limite para a largura da imagem
         margin: 0 auto; // Centraliza a imagem horizontalmente
   
         img {
+          width:100%;
           border-radius: 8px;
           object-fit: cover;
         }

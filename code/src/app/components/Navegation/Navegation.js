@@ -30,12 +30,14 @@ export default function Navegation() {
           isMenuOpen ? Styles.menu__open : Styles.menu__closed
         }`}
       >
-        <img
-          src="logo.png"
-          alt="Logo"
-          className={isMenuOpen ? Styles.logo__open : Styles.logo__closed}
-        />
-
+        <div className={Styles.logo}>
+          <img
+            src="logo.png"
+            alt="Logo"
+            className={isMenuOpen ? Styles.logo__open : Styles.logo__closed}
+          />
+        </div>
+        
         <div className={Styles.links}>
           <Link className={Styles.link} href="/">
             <img src="home.png" alt="home" width="30px" height="30px" />{" "}
@@ -43,20 +45,17 @@ export default function Navegation() {
               Home
             </p>
           </Link>
+
           <Link
             className={`${Styles.link} ${Styles.separator}`}
             href="/quickRecipes"
           >
-            <img
-              src="stopwatch.png"
-              alt="quick recipes"
-              width="30px"
-              height="30px"
-            />{" "}
+            <img src="stopwatch.png" alt="quick recipes" width="30px" height="30px"/>{" "}
             <p className={isMenuOpen ? Styles.p__open : Styles.p__closed}>
               Quick Recipes
             </p>
           </Link>
+
           <Link
             className={`${Styles.link} ${Styles.separator}`}
             href="/myRecipes"
@@ -66,13 +65,14 @@ export default function Navegation() {
               My Recipes
             </p>
           </Link>
+          
           <Link
             className={`${Styles.link} ${Styles.separator}`}
-            href="/addRecipes"
+            href="/addSection"
           >
-            <img src="home.png" alt="add recipe" width="30px" height="30px" />{" "}
+            <img src="add.png" alt="add section" width="30px" height="30px" />{" "}
             <p className={isMenuOpen ? Styles.p__open : Styles.p__closed}>
-              Add Recipes
+              Add Section
             </p>
           </Link>
         </div>

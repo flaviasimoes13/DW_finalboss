@@ -2,9 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Styles from "./page.module.scss";
-import Image from "next/image"; // Importando corretamente o componente Image
+import Image from "next/image";
 
-// Importando o componente RecipeCard
 import RecipeCard from "./components/RecipeCard/RecipeCard";
 
 export default function Home() {
@@ -16,7 +15,7 @@ export default function Home() {
       try {
         const response = await fetch("/api/recipes");
         const data = await response.json();
-        setRecipes(data); // Armazenando as receitas no estado
+        setRecipes(data); 
 
         // Seleciona uma receita aleatória
         if (data.length > 0) {
@@ -32,7 +31,7 @@ export default function Home() {
   }, []);
 
   const quickRecipes = recipes.filter(
-    (recipe) => recipe.duration && recipe.duration <= 35
+    (recipe) => recipe.duration && recipe.duration <= 30
   );
 
   return (
@@ -73,13 +72,7 @@ export default function Home() {
       <section className={Styles.quickRecipes}>
         <h2 className={Styles.sectionTitle}>Quick Recipes</h2>
         <div className={Styles.quickRecipesItem}>
-          {quickRecipes.length > 0 ? (
-            quickRecipes
-              .slice(0, 9)
-              .map((recipe) => <RecipeCard key={recipe._id} recipe={recipe} />)
-          ) : (
-            <p>No quick recipes available.</p>
-          )}
+        
         </div>
       </section>
 

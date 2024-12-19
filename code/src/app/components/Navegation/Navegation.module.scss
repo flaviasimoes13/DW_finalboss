@@ -3,12 +3,10 @@
 .navegation {
   width: 250px;
   height: 100vh;
-  position: fixed; // Mantém o menu fixo na tela
-  top: 0;
-  left: 0;
+  position: fixed; 
   background-color: colors.$greyblue-color;
   padding-top: 15px;
-  z-index: 9999; // Garante que o menu fique por cima de tudo
+  z-index: 10; 
 }
 
 .hamburguer {
@@ -31,7 +29,7 @@
   }
 
   .logo {
-    width: 80%;
+    width: 100%;
     height: auto;
   }
 }
@@ -42,10 +40,6 @@
   padding-top: 15px;
   gap: 10px;
 }
-
-/*.separator {
-  border-top: 1px solid colors.$lightblue-color;
-}*/
 
 @media (max-width: 850px) {
   .navegation {
@@ -79,8 +73,9 @@
   }
 
   .hamburguer {
-    display: block;
     all: unset;
+    display: block;
+    padding-left: 15px;
     width: 40px;
     height: 40px;
     cursor: pointer;
@@ -127,10 +122,5 @@
     gap: 5px;
     width: auto;
     padding: 0;
-  }
-
-  .separator {
-    //border-top: 1px solid #ccc;
-    margin: 10px 0 0 0;
   }
 }
