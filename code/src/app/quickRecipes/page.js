@@ -22,7 +22,7 @@ const [recipes, setRecipes] = useState([]);
   }, []);
 
   const quick = recipes.filter(
-    (recipe) => recipe.duration && recipe.duration <= 30
+    (recipe) => recipe.duration && recipe.duration <= 35
   );
 
 

@@ -13,10 +13,14 @@
   width: 100%;
 }
 
+
 .highlightItem {
   @extend %common-layout;
   flex-direction: row;
   justify-content: space-between;
+  padding: 20px; /* Espaço interno */
+  max-width: 1200px; /* Limita a largura máxima para telas maiores */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 
   .highlightText {
     justify-content: center;
@@ -60,12 +64,16 @@
   }
 }
 
+
+
 .sectionTitle {
   width: 100%;
   font-size: 2.2rem;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   color: colors.$brown-color;
   text-align: center;
+  border-top: 2px solid colors.$greyblue-color; /* Linha preta acima */
+  padding-top: 20px; /* Ajuste o espaçamento para a linha */
 }
 
 .quickRecipes,

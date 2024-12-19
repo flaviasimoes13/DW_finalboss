@@ -29,7 +29,7 @@ export default function Home() {
   }, []);
 
   const quickRecipes = recipes.filter(
-    (recipe) => recipe.duration && recipe.duration <= 30
+    (recipe) => recipe.duration && recipe.duration <= 35
   );
 
   return (
@@ -88,7 +88,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/*
+      
       <section className={Styles.myRecipes}>
         <h2 className={Styles.sectionTitle}>My Recipes</h2>
         <div className={Styles.myRecipesItem}>
@@ -97,7 +97,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-      */}
+      
     </>
   );
 }
