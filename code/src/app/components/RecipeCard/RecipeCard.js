@@ -3,25 +3,26 @@
 import Styles from "./RecipeCard.module.scss";
 import Link from "next/link";
 
-export default function RecipeCard(recipe) {
+export default function RecipeCard(props) {
+
   return (
     <Link
       className={Styles.link}
-      key={recipe._id}
-      href={`/recipe/${recipe._id}`}
+      key={props.id}
+      href={`/recipe/${props.id}`}
     >
       <div className={Styles.recipe}>
         <img
           className={Styles.recipe__image}
-          src={recipe.image_link}
+          src={props.image_link}
           width={"100%"}
           height={"auto"}
-          alt={recipe.recipe_name}
+          alt={props.recipe_name}
         />
         <div className={Styles.text}>
-          <h2 className={Styles.recipe__name}>{recipe.recipe_name}</h2>
+          <h2 className={Styles.recipe__name}>{props.recipe_name}</h2>
           <h3 className={Styles.recipe__category}>
-            Category: {recipe.category}
+            Category: {props.category}
           </h3>
         </div>
       </div>

@@ -120,7 +120,7 @@ export default function Home() {
               .slice(0, 9)
               .map((recipe) => (
                 <RecipeCard
-                  key={recipe._id}
+                  id={recipe._id}
                   recipe_name={recipe.recipe_name}
                   image_link={recipe.image_link}
                   category={recipe.category_name} //_name

@@ -1,3 +1,4 @@
+/*
 import Styles from "./page.module.scss";
 
 export default function Recipe() {
@@ -13,3 +14,4 @@ export default function Recipe() {
     </>
   );
 }
+*/

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Styles from "./Navegation.module.scss";
 import { useState } from "react";
-import RecipeDetail from "../RecipeDetail/RecipeDetail";
 
 export default function Navegation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
