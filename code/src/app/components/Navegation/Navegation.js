@@ -8,8 +8,8 @@ import SectionLink from "../SectionLink/SectionLink";
 export default function Navegation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false); 
-  const [newSectionName, setNewSectionName] = useState("");  // Estado para o nome da nova seção
-  const [sections, setSections] = useState([  // Seções no estado (sem o item "Add Section")
+  const [newSectionName, setNewSectionName] = useState(""); 
+  const [sections, setSections] = useState([  
     { href: "/", icon: "home.png", label: "Home" },
     { href: "/quickRecipes", icon: "stopwatch.png", label: "Quick Recipes" },
     { href: "/myRecipes", icon: "myrec.png", label: "My Recipes" },
@@ -20,33 +20,54 @@ export default function Navegation() {
   };
 
   const openPopup = (e) => {
-    e.preventDefault();  // Previne a navegação
-    setIsPopupOpen(true);  // Abre o popup
+    e.preventDefault(); 
+    setIsPopupOpen(true); 
   };
 
   const closePopup = () => {
-    setIsPopupOpen(false);  // Fecha o popup
+    setIsPopupOpen(false);  
   };
 
-  const handleAddSection = () => {
+  const handleAddSection = async () => {
     if (newSectionName.trim()) {
-      const newSection = {
-        href: `/${newSectionName.toLowerCase().replace(/\s+/g, '-')}`,  // Gera um href com o nome
-        icon: "add.png",  // Pode ser um ícone default ou outro
-        label: newSectionName,
-      };
-
-      setSections((prevSections) => [
-        ...prevSections,
-        newSection,  // Adiciona a nova seção à lista
-      ]);
-
-      setNewSectionName("");  // Limpa o nome da seção
-      closePopup();  // Fecha o popup
+      try {
+        // Send the section name to the backend API
+        const response = await fetch("/api/sections", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",  // Ensure the data is in JSON format
+          },
+          body: JSON.stringify({ sectionName: newSectionName })  // Send the section name in the request body
+        });
+  
+        const data = await response.json();
+  
+        if (response.ok) {
+          // If the section was added successfully, update the frontend state
+          const newSection = {
+            href: `/${newSectionName.toLowerCase().replace(/\s+/g, '-')}`,
+            icon: "myrec.png",  // You can adjust the icon as needed
+            label: newSectionName,  // The label is the section name
+          };
+  
+          setSections((prevSections) => [
+            ...prevSections,
+            newSection,  // Add the new section to the list
+          ]);
+  
+          setNewSectionName("");  // Clear the input field
+          closePopup();  // Close the popup after adding the section
+        } else {
+          alert(data.error || "Error adding section");
+        }
+      } catch (error) {
+        console.error("Error adding section:", error);
+      }
     } else {
-      alert("Por favor, insira um nome válido para a seção.");
+      alert("Please insert a valid name for your section");
     }
   };
+  
 
   return (
     <div
@@ -87,7 +108,6 @@ export default function Navegation() {
             />
           ))}
 
-          {/* Adiciona o "Add Section" sempre ao final */}
           <SectionLink
             key="add-section"
             href="#"
@@ -100,124 +120,21 @@ export default function Navegation() {
       </nav>
 
 
-
-{/* Popup */}
       {isPopupOpen && (
-        <div className={Styles.popup}>
+        <div className={isPopupOpen ? Styles.popup : Styles.notpopup}>
           <div className={Styles.popupContent}>
             <h3>Add new Section</h3>
             <input
               type="text"
-              placeholder="Digite o nome da seção"
+              placeholder="Insert section name"
               value={newSectionName}
               onChange={(e) => setNewSectionName(e.target.value)}
             />
-            <button onClick={handleAddSection}>Adicionar Seção</button>
-            <button onClick={closePopup}>Cancelar</button>
+            <button onClick={handleAddSection}>Add Section</button>
+            <button onClick={closePopup}>Cancel</button>
           </div>
         </div>
       )}
     </div>
   );
 }
-
-
-
-/*
-"use client";
-
-import Link from "next/link";
-import Styles from "./Navegation.module.scss";
-import { useState } from "react";
-
-export default function Navegation() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
-
-  return (
-    <div
-      className={`${Styles.navegation} ${
-        isMenuOpen ? Styles.navegation__open : Styles.navegation__closed
-      }`}
-    >
-      <button className={Styles.hamburguer} onClick={toggleMenu}>
-        {isMenuOpen ? (
-          <img src="/menu_close.png" width={"100%"} height={"100%"} />
-        ) : (
-          <img src="/menu_open.png" width={"100%"} height={"100%"} />
-        )}
-      </button>
-
-      <nav
-        className={`${Styles.menu} ${
-          isMenuOpen ? Styles.menu__open : Styles.menu__closed
-        }`}
-      >
-        <div className={Styles.logo}>
-          <img
-            src="logo.png"
-            alt="Logo"
-            className={isMenuOpen ? Styles.logo__open : Styles.logo__closed}
-          />
-        </div>
-        
-        <div className={Styles.links}>
-          <Link className={Styles.link} href="/">
-            <img src="home.png" alt="home" width="30px" height="30px" />{" "}
-            <p className={isMenuOpen ? Styles.p__open : Styles.p__closed}>
-              Home
-            </p>
-          </Link>
-
-          <Link
-            className={`${Styles.link} ${Styles.separator}`}
-            href="/quickRecipes"
-          >
-            <img src="stopwatch.png" alt="quick recipes" width="30px" height="30px"/>{" "}
-            <p className={isMenuOpen ? Styles.p__open : Styles.p__closed}>
-              Quick Recipes
-            </p>
-          </Link>
-
-          <Link
-            className={`${Styles.link} ${Styles.separator}`}
-            href="/myRecipes"
-          >
-            <img src="myrec.png" alt="my recipes" width="30px" height="30px" />{" "}
-            <p className={isMenuOpen ? Styles.p__open : Styles.p__closed}>
-              My Recipes
-            </p>
-          </Link>
-          
-          <Link
-            className={`${Styles.link} ${Styles.separator}`}
-            href="/addSection"
-          >
-            <img src="add.png" alt="add section" width="30px" height="30px" />{" "}
-            <p className={isMenuOpen ? Styles.p__open : Styles.p__closed}>
-              Add Section
-            </p>
-          </Link>
-        </div>
-      </nav>
-    </div>
-  );
-}
-*/
-
-
-//=============================
-/*
-import Link from "next/link";
-
-export default function Navegation() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
-    
-*/

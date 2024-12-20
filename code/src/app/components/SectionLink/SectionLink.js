@@ -8,7 +8,7 @@ export default function SectionLink({ href, icon, label, isMenuOpen, onClick }) 
       <Link
         className={`${Styles.link} ${Styles.separator}`}
         href={href}
-        onClick={onClick} // Adicionando onClick ao Link para "Add Section"
+        onClick={onClick} 
       >
         
       <img src={icon} alt={label} width="30px" height="30px" />

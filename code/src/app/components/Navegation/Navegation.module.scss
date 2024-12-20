@@ -34,7 +34,31 @@
   }
 }
 
+.popup{
+  border: solid 2px colors.$lightblue-color;
+  display: flex;
+  justify-content: center;
+  margin-left:25px;
+  width:200px;
+  
+  .popupContent{
+    display: flex;
+    flex-direction: column;
+    width:150px;
 
+      h3{
+        color:colors.$lightblue-color;
+      }
+
+      button{
+        all:unset;
+        background-color:colors.$lightblue-color ;
+        border: solid 2px colors.$greyblue-color;
+        width:150px;
+        height:20px;
+      }
+  }
+}
 
 @media (max-width: 850px) {
   .navegation {
