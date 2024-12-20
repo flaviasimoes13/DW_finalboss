@@ -14,17 +14,8 @@ Before starting the project, make sure you have Node.js and npm installed on you
 
    git clone https://github.com/flaviasimoes13/DW_finalboss.git
 
-2. **Install the dependencies:**
 
-   Navigate to the project directory:
-
-   cd [path]\DW_finalboss\code
-
-   Then, install the necessary dependencies:
-
-   npm install
-
-3. **Connect to the database:**
+2. **Connect to the database:**
 
    Open CMD
 
@@ -34,11 +25,23 @@ Before starting the project, make sure you have Node.js and npm installed on you
    
    Run: mongod --dbpath database --port 27017
 
-4. **Import the collections to the database:**
+
+3. **Import the collections to the database:**
    
    Create a database called "recipes" in mongoDB 
    
    Add the attached json files in the DW "files folder" as collections to "recipes".
+
+
+4. **Install the dependencies:**
+
+   Navigate to the project directory:
+
+   cd [path]\DW_finalboss\code
+
+   Then, install the necessary dependencies:
+
+   npm install
 
 
 ## Running the App
@@ -49,7 +52,7 @@ npm run build
 
 npm run start
 
-The app will be available at http://localhost:3000.
+The app will be available at http://localhost:3000 by default, unless the terminal says otherwise.
 
 
 ## Project Structure
