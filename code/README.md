@@ -1,6 +1,6 @@
 # Recipe WebApp
 
-This is a recipe app project developed with **React** e **Next.js**.
+This is a recipe app project developed with **Next.js**.
 
 ## Requirements
 
@@ -18,7 +18,7 @@ Before starting the project, make sure you have Node.js and npm installed on you
 
    Navigate to the project directory:
 
-   cd C:\Users\YourUser\Documents\GitHub\DW_finalboss\code
+   cd [path]\DW_finalboss\code
 
    Then, install the necessary dependencies:
 

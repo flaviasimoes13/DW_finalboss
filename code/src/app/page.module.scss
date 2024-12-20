@@ -18,8 +18,8 @@
   @extend %common-layout;
   flex-direction: row;
   justify-content: space-between;
-  padding: 20px; /* Espaço interno */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  padding: 20px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 
   .highlightText {
     justify-content: center;
@@ -71,8 +71,8 @@
   padding-bottom: 40px;
   color: colors.$brown-color;
   text-align: center;
-  border-top: 2px solid colors.$greyblue-color; /* Linha preta acima */
-  padding-top: 20px; /* Ajuste o espaçamento para a linha */
+  border-top: 2px solid colors.$greyblue-color; 
+  padding-top: 20px;
 }
 
 .quickRecipes,
@@ -80,7 +80,7 @@
   @extend %common-layout;
   padding: 30px;
   margin: 0;
-  width: 100%; /* Garante que o container ocupa toda a largura */
+  width: 100%;
 
   .quickRecipesItem,
   .myRecipesItem {
@@ -90,7 +90,7 @@
     width: 1130px;
 
     .recipe {
-      width: 100%; /* Garante que cada item ocupa o espaço definido pelo grid */
+      width: 100%;
       img {
         width: 100%;
         border-radius: 8px;

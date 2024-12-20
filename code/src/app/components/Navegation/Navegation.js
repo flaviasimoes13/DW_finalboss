@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import Styles from "./Navegation.module.scss";
 import { useState } from "react";
 import SectionLink from "../SectionLink/SectionLink";
@@ -31,32 +30,30 @@ export default function Navegation() {
   const handleAddSection = async () => {
     if (newSectionName.trim()) {
       try {
-        // Send the section name to the backend API
         const response = await fetch("/api/sections", {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",  // Ensure the data is in JSON format
+            "Content-Type": "application/json", 
           },
-          body: JSON.stringify({ sectionName: newSectionName })  // Send the section name in the request body
+          body: JSON.stringify({ sectionName: newSectionName })
         });
   
         const data = await response.json();
   
         if (response.ok) {
-          // If the section was added successfully, update the frontend state
           const newSection = {
             href: `/${newSectionName.toLowerCase().replace(/\s+/g, '-')}`,
-            icon: "myrec.png",  // You can adjust the icon as needed
-            label: newSectionName,  // The label is the section name
+            icon: "myrec.png",
+            label: newSectionName,
           };
   
           setSections((prevSections) => [
             ...prevSections,
-            newSection,  // Add the new section to the list
+            newSection,
           ]);
   
-          setNewSectionName("");  // Clear the input field
-          closePopup();  // Close the popup after adding the section
+          setNewSectionName("");
+          closePopup();
         } else {
           alert(data.error || "Error adding section");
         }
@@ -104,7 +101,7 @@ export default function Navegation() {
               icon={section.icon}
               label={section.label} 
               isMenuOpen={isMenuOpen}
-              onClick={section.label === "Add Section" ? openPopup : null}  // Passa a função de clique para "Add Section"
+              onClick={section.label === "Add Section" ? openPopup : null}
             />
           ))}
 

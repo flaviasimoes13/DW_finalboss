@@ -27,8 +27,8 @@
     width: 100%;
 
     .quickRecipesItem {
-        display: flex; /* Mudar de grid para flex */
-        flex-direction: column; /* Organizar os itens em coluna */
+        display: flex; 
+        flex-direction: column; 
         gap: 50px;
         width: 100%;
         align-items: flex-start;
