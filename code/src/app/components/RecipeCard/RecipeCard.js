@@ -4,13 +4,8 @@ import Styles from "./RecipeCard.module.scss";
 import Link from "next/link";
 
 export default function RecipeCard(props) {
-
   return (
-    <Link
-      className={Styles.link}
-      key={props.id}
-      href={`/recipe/${props.id}`}
-    >
+    <Link className={Styles.link} key={props.id} href={`/recipe/${props.id}`}>
       <div className={Styles.recipe}>
         <img
           className={Styles.recipe__image}

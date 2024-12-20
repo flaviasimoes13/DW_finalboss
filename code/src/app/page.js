@@ -8,7 +8,6 @@ export default function Home() {
   const [recipes, setRecipes] = useState([]);
   const [featuredRecipe, setFeaturedRecipe] = useState(null);
 
-  //
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -75,7 +74,7 @@ export default function Home() {
   const quickRecipes = recipes.filter(
     (recipe) => recipe.duration && recipe.duration <= 35
   );
-  console.log("Quick Recipes:", quickRecipes);
+
   return (
     <>
       <section className={Styles.highlightItem}>
@@ -123,7 +122,7 @@ export default function Home() {
                   id={recipe._id}
                   recipe_name={recipe.recipe_name}
                   image_link={recipe.image_link}
-                  category={recipe.category_name} //_name
+                  category={recipe.category_name} 
                 />
               ))
           ) : (

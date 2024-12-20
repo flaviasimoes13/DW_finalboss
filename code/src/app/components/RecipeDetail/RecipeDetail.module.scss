@@ -1,94 +1,92 @@
 @use "../../styles/colors";
 
 .recipe {
+  display: flex;
+  flex-direction: column;
+  background-color: colors.$beige-color;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 7px solid colors.$greyblue-color;
+
+  &__content {
     display: flex;
-    flex-direction: column;
-    background-color: colors.$beige-color;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 7px solid colors.$greyblue-color;
-    margin-bottom: 30px;
-  
-    &__content {
-      display: flex;
-      align-items: center;
-      gap: 20px;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__imageWrapper {
+    flex: 0 0 150px;
+    img {
+      width: 350px;
+      height: 200px;
+      border-radius: 8px;
+      object-fit: cover;
     }
-  
+  }
+
+  &__text {
+    flex: 1;
+    color: colors.$black-color;
+
+    h2 {
+      font-size: 1.8rem;
+      margin: 0 0 10px;
+      color: colors.$black-color;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      margin: 0 0 10px;
+      font-weight: 500;
+      color: colors.$black-color;
+    }
+
+    p {
+      font-size: 1rem;
+      color: colors.$brown-color;
+      line-height: 1.5;
+    }
+  }
+}
+
+@media (max-width: 585px) {
+  .recipe {
+    padding: 15px;
+    border-width: 5px;
+
+    &__content {
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+    }
+
     &__imageWrapper {
-      flex: 0 0 150px;
+      flex: 0 0 auto;
+      width: 100%;
+      height: auto;
+      max-width: 300px;
+      margin: 0 auto;
+
       img {
-        width: 350px;
-        height: 200px;
+        width: 100%;
         border-radius: 8px;
         object-fit: cover;
       }
     }
-  
+
     &__text {
-      flex: 1;
-      color: colors.$black-color;
-  
       h2 {
-        font-size: 1.8rem;
-        margin: 0 0 10px;
-        color: colors.$black-color;
+        font-size: 1.5rem;
       }
-  
+
       h3 {
-        font-size: 1.4rem;
-        margin: 0 0 10px;
-        font-weight: 500;
-        color: colors.$black-color;
+        font-size: 1.2rem;
       }
-  
+
       p {
-        font-size: 1rem;
-        color: colors.$brown-color;
-        line-height: 1.5;
+        font-size: 0.9rem;
       }
     }
   }
-  
-  @media (max-width: 585px) {
-    .recipe {
-      padding: 15px; // Reduz o padding em telas pequenas
-      border-width: 5px; // Ajusta a espessura da borda
-  
-      &__content {
-        flex-direction: column; // Empilha os elementos verticalmente
-        text-align: center; // Centraliza o texto
-        gap: 10px; // Reduz o espaçamento entre os elementos
-      }
-  
-      &__imageWrapper {
-        flex: 0 0 auto; // Permite que a imagem ajuste a altura
-        width: 100%; // Faz a imagem ocupar toda a largura
-        height: auto;
-        max-width: 300px; // Define um limite para a largura da imagem
-        margin: 0 auto; // Centraliza a imagem horizontalmente
-  
-        img {
-          width:100%;
-          border-radius: 8px;
-          object-fit: cover;
-        }
-      }
-  
-      &__text {
-        h2 {
-          font-size: 1.5rem; // Reduz o tamanho do título
-        }
-  
-        h3 {
-          font-size: 1.2rem; // Ajusta a categoria
-        }
-  
-        p {
-          font-size: 0.9rem; // Reduz o tamanho da descrição
-        }
-      }
-    }
-  }
-  
+}

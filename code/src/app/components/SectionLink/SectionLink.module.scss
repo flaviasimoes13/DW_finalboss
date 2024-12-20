@@ -1,0 +1,19 @@
+@use "../../styles/colors";
+
+.link {
+    display: flex;
+    align-items: center;
+    padding-top: 15px;
+    gap: 10px;
+  }
+
+@media (max-width: 850px) {
+    .p {
+      &__open {
+        display: block;
+      }
+      &__closed {
+        display: none;
+      }
+    }
+}
